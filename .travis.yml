@@ -11,5 +11,6 @@ cache:
     - node_modules
 script:
   - yarn --version
+  - yarn test
 on:
   branch: master

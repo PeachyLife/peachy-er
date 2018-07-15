@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "devstart": "nodemon ./bin/www",
-    "start": "node ./bin/www"
+    "start": "node ./bin/www",
+    "test": "jest"
   },
   "dependencies": {
     "@material-ui/core": "^1.0.0",
@@ -64,7 +65,10 @@
     "zipcelx": "^1.4.2"
   },
   "devDependencies": {
+    "babel-jest": "^23.4.0",
     "css-loader": "^0.28.11",
+    "jest": "^23.4.0",
+    "jest-css-modules": "^1.1.0",
     "less": "^2.7.3",
     "less-loader": "^4.1.0",
     "nodemon": "^1.17.4",

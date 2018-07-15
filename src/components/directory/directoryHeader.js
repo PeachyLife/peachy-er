@@ -8,10 +8,10 @@ import InputLabel from '@material-ui/core/InputLabel';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import TextField from '@material-ui/core/TextField';
 import Search from '@material-ui/icons/Search';
-import zipcelx from 'zipcelx';
+// workaround for jest error with  dynamic import in zipclx module
+import zipcelx from 'zipcelx/lib/standalone';
 import axios from 'axios';
 import Button from '@material-ui/core/Button';
-
 
 
 class DirectoryHeader extends React.Component {

@@ -19,28 +19,29 @@ import MainGuide from './components/guideView/mainGuide';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import CssBaseline from '@material-ui/core/CssBaseline';
 
-import ReactGA from 'react-ga';
+// import ReactGA from 'react-ga';
 
-ReactGA.initialize('UA-119767358-1');
+// ReactGA.initialize('UA-119767358-1');
 
 //const middleWare = applyMiddleware(thunk, createLogger());
 const middleWare = applyMiddleware(thunk);
 const store = createStore(reducers, middleWare);
 
-render(
+export const App = () => (
   <Provider store={store}>
     <BrowserRouter>
-    <CssBaseline >
-      <MuiThemeProvider>
-      <div>
-        <Route exact path="/dashboard" component={Dashboard} />
-        <Route exact path="/staff" component={MainStaff} />
-        <Route exact path="/clients" component={MainClient} />
-        <Route exact path="/guides" component={MainGuide} />
-      </div>
-      </MuiThemeProvider>
-    </CssBaseline >
+      <CssBaseline >
+        <MuiThemeProvider>
+          <div>
+            <Route exact path="/dashboard" component={Dashboard} />
+            <Route exact path="/staff" component={MainStaff} />
+            <Route exact path="/clients" component={MainClient} />
+            <Route exact path="/guides" component={MainGuide} />
+          </div>
+        </MuiThemeProvider>
+      </CssBaseline >
     </BrowserRouter>
-  </Provider>,
-  document.getElementById("app")
-);
+  </Provider>
+)
+
+export default App
