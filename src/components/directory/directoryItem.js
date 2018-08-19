@@ -48,7 +48,7 @@ class DirectoryItem extends React.Component {
 
     handleClose = () => {
         this.setState({
-            open: false, 
+            open: false,
             selectedVisit: null
         })
     };
@@ -65,7 +65,7 @@ class DirectoryItem extends React.Component {
         })
     }
 
-      
+
     setLogs(visit, index){
         //onClick={this.openVisitDialog.bind(this,visit)}
         return(<div key={index} className='visitlogEntry' >
@@ -87,7 +87,7 @@ class DirectoryItem extends React.Component {
             this.setState({visitLog:res.data});
         })
     }
-  
+
     setItem(item){
         var visitLogs = [];
         if (this.state.logOpen){
@@ -98,10 +98,10 @@ class DirectoryItem extends React.Component {
         var numberType = ''
         if(this.props.type == 'Clients'){
             numberType = 'Billed Hours'
-            phoneNumber = formatPhone(item.phones[0].substring(2));
+          phoneNumber = item.phones[0] ? formatPhone(item.phones[0].substring(2)) : null;
         } else {
             numberType = 'Hours Worked';
-            phoneNumber = formatPhone(item.phoneNumber.substring(2));
+          phoneNumber = item.phoneNumber ? formatPhone(item.phoneNumber.substring(2)) : null;
         }
         var hourNumber = item.payingHours || item.billedHours || 0
         return(
@@ -125,7 +125,7 @@ class DirectoryItem extends React.Component {
             ) : null}
         </div>
         {this.state.logOpen ? (
-                <div className='directoryItemVisitLog'> 
+                <div className='directoryItemVisitLog'>
                     <div className='visitlogTitle midheader'> Visit log: </div>
                     <div className='visitlogBody subheader'> {visitLogs}</div>
                 </div>
@@ -173,10 +173,5 @@ function mapDispatchToProps(dispatch) {
       clients:state.clientReducers.clients
     };
   }
-  
+
 export default connect(mapStateToProps, mapDispatchToProps)(DirectoryItem);
-
-
-
-  
-  
